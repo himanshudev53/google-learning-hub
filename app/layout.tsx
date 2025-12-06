@@ -76,7 +76,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <WebVitals />
+        {/* <WebVitals /> */}
         {/* Add Google Analytics */}
         {/* <GoogleAnalytics gaId="G-ZDC6JD8VCW" /> */}
       </body>
