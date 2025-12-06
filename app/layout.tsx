@@ -38,10 +38,39 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Add Google Tag Manager script */}
-        <GoogleTagManager gtmId="GTM-XXXXXX" />
+        {/* <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagletmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-XXXXXX');
+            `
+          }}
+        /> */}
+        {/* Add manual GA script here too */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDC6JD8VCW"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-ZDC6JD8VCW');
+            `
+          }}
+        />
       </head>
       <body className={inter.className}>
+        {/* <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript> */}
         <Header />
         <main className="container mx-auto px-4 py-8">
           {children}
@@ -49,7 +78,7 @@ export default function RootLayout({
         <Footer />
         <WebVitals />
         {/* Add Google Analytics */}
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+        {/* <GoogleAnalytics gaId="G-ZDC6JD8VCW" /> */}
       </body>
     </html>
   )

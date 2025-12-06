@@ -6,12 +6,12 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   // Enable experimental features if needed
-  experimental: {
-    staleTimes: {
-      dynamic: 30,
-      static: 180,
-    },
-  },
+  // experimental: {
+  //   staleTimes: {
+  //     dynamic: 30,
+  //     static: 180,
+  //   },
+  // },
 };
 
 export default nextConfig;
