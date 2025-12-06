@@ -14,15 +14,15 @@ export function WebVitals() {
       fetch(url, { body, method: 'POST', keepalive: true })
     }
 
-    // Send to Google Analytics using type assertion
-    // This avoids TypeScript errors completely
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', metric.name, {
-        value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
-        event_label: metric.id,
-        non_interaction: true,
-      })
-    }
+    // Optional: Send to Google Analytics - FIXED VERSION
+    // Using type assertion to avoid TypeScript errors
+    // if (typeof window !== 'undefined' && (window as any).gtag) {
+    //   (window as any).gtag('event', metric.name, {
+    //     value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+    //     event_label: metric.id,
+    //     non_interaction: true,
+    //   })
+    // }
   })
 
   return null
