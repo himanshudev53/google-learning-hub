@@ -49,14 +49,14 @@ export default function RootLayout({
           }}
         /> */}
         {/* Add manual GA script here too */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDC6JD8VCW"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6YZXDXX4M"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-ZDC6JD8VCW');
+              gtag('config', 'G-Q6YZXDXX4M');
             `
           }}
         />
