@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NEXT_PUBLIC_SITE_URL = "https://your-site.netlify.app"
+
+# Enable Netlify's Next.js adapter
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Enable skew protection for zero-downtime deployments
+[context.production.environment]
+  NETLIFY_NEXT_SKEW_PROTECTION = "true"
