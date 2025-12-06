@@ -2,7 +2,12 @@
 
 import { useReportWebVitals } from 'next/web-vitals'
 
-
+// Add TypeScript declaration for gtag
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void
+  }
+}
 
 export function WebVitals() {
   useReportWebVitals((metric) => {
