@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
-import { WebVitals } from '@/components/WebVitals'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+
 import './globals.css'
+import { WebVitals } from './components/WebVitals'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 

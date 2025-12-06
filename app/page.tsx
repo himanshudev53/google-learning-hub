@@ -1,5 +1,5 @@
-import CourseCard from '@/components/CourseCard'
-import { courses } from '@/lib/constants'
+import CourseCard from '@/app/components/CourseCard'
+import { courses } from '@/app/lib/constants'
 
 export default function HomePage() {
   return (
