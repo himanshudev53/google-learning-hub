@@ -2,13 +2,24 @@
   command = "npm run build"
   publish = ".next"
 
+# Add this build settings section for caching
 [build.environment]
-  NEXT_PUBLIC_SITE_URL = "https://your-site.netlify.app"
+  NEXT_PUBLIC_SITE_URL = "https://google-learning-hub.netlify.app"
 
 # Enable Netlify's Next.js adapter
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Enable skew protection for zero-downtime deployments
-[context.production.environment]
-  NETLIFY_NEXT_SKEW_PROTECTION = "true"
+# Add this for build caching
+[build.caching]
+  max_parallel_downloads = 10
+
+# Add environment for Turbopack/staleTimes
+[context.production]
+  environment = { NEXT_EXPERIMENTAL_STALE_TIMES = "true" }
+
+[context.deploy-preview]
+  environment = { NEXT_EXPERIMENTAL_STALE_TIMES = "true" }
+
+[context.branch-deploy]
+  environment = { NEXT_EXPERIMENTAL_STALE_TIMES = "true" }
