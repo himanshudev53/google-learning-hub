@@ -2,13 +2,6 @@
 
 import { useReportWebVitals } from 'next/web-vitals'
 
-// Add TypeScript declaration for gtag
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void
-  }
-}
-
 export function WebVitals() {
   useReportWebVitals((metric) => {
     // Send to your analytics endpoint
@@ -21,9 +14,10 @@ export function WebVitals() {
       fetch(url, { body, method: 'POST', keepalive: true })
     }
 
-    // Optional: Send to Google Analytics
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', metric.name, {
+    // Send to Google Analytics using type assertion
+    // This avoids TypeScript errors completely
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', metric.name, {
         value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
         event_label: metric.id,
         non_interaction: true,
