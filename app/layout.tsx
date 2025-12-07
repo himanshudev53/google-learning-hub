@@ -15,8 +15,9 @@ export const metadata: Metadata = {
   },
   description: 'Learn Google Analytics, SEO, and modern web technologies with practical tutorials',
   alternates: {
-    canonical: 'https://google-learning-hub.com'
+    canonical: 'https://bespoke-pika-28ba05.netlify.app'
   },
+  metadataBase: new URL('https://bespoke-pika-28ba05.netlify.app'),
   openGraph: {
     type: 'website',
     title: 'Google Learning Hub',
@@ -37,17 +38,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* <script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagletmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-XXXXXX');
+                          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TVH9Q4TP');
             `
           }}
-        /> */}
+        />
         {/* Add manual GA script here too */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6YZXDXX4M"></script>
         <script
@@ -62,14 +63,8 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        {/* <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript> */}
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVH9Q4TP"
+          height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
         <Header />
         <main className="container mx-auto px-4 py-8">
           {children}
