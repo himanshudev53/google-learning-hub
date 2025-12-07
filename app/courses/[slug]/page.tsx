@@ -1,3 +1,4 @@
+"use client"
 
 import CourseContent from '@/app/components/CourseContent'
 import { courses } from '@/app/lib/constants'
