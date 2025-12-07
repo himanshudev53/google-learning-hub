@@ -2,6 +2,7 @@
 import CourseContent from '@/app/components/CourseContent'
 import { courses } from '@/app/lib/constants'
 import { notFound } from 'next/navigation'
+import { trackCourseView } from '@/app/lib/analytics'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -13,6 +14,8 @@ export async function generateMetadata({ params }: PageProps) {
 
   if (!course) return {}
 
+  trackCourseView(course.id, course.title)
+
   return {
     title: `${course.title} | Google Learning Hub`,
     description: course.description,
@@ -22,7 +25,7 @@ export async function generateMetadata({ params }: PageProps) {
       type: 'article',
     },
     alternates: {
-      canonical: `https://google-learning-hub.com/courses/${slug}`
+      canonical: `https://bespoke-pika-28ba05.netlify.app/courses/${slug}`
     }
   }
 }

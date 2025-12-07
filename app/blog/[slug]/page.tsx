@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { blogPosts } from '../page';
-
-
+import { generateSEOConfig } from '@/app/lib/seo'
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -17,10 +16,15 @@ export async function generateMetadata({ params }: PageProps) {
         };
     }
 
-    return {
-        title: `${post.title} | Google Learning Hub`,
+    return generateSEOConfig({
+        title: post.title,
         description: post.excerpt,
-    };
+        // image: post.image,
+        url: `/blog/${post.slug}`,
+        type: 'article',
+        publishedTime: post.date,
+        author: post.author,
+    });
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
