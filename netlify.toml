@@ -5,7 +5,7 @@
 # Add this build settings section for caching
 [build.environment]
   NODE_VERSION = "20" 
-  NEXT_PUBLIC_SITE_URL = "https://google-learning-hub.netlify.app"
+  NEXT_PUBLIC_SITE_URL = "https://bespoke-pika-28ba05.netlify.app"
 
 # Enable Netlify's Next.js adapter
 [[plugins]]

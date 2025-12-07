@@ -2,8 +2,9 @@ import CourseCard from '@/app/components/CourseCard';
 import { courses } from '@/app/lib/constants';
 
 export const metadata = {
-    title: 'All Courses | Google Learning Hub',
-    description: 'Browse all available courses on Google Analytics, SEO, and web technologies',
+    title: 'Free Analytics & SEO Courses | Google Learning Hub',
+    description: 'Browse all our free courses on Google Analytics 4, SEO optimization, Core Web Vitals, and digital marketing.',
+    keywords: ['ga4 course', 'google analytics certification', 'ga4 tutorial free', 'learn analytics online'],
 };
 
 export default function CoursesPage() {
