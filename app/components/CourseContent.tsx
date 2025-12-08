@@ -1,7 +1,16 @@
-import { Course } from "../lib/constants";
 
-interface CourseContentProps {
-    course: Course;
+
+
+export interface CourseContentProps {
+  course: {
+    id: string
+    title: string
+    description: string
+    duration: string
+    level: string
+    chapters: number
+    topics: string[]
+  }
 }
 
 export default function CourseContent({ course }: CourseContentProps) {
