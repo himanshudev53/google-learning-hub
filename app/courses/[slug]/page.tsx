@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: PageProps) {
 
   if (!course) return {}
 
-  trackCourseView(course.id, course.title)
+  // trackCourseView(course.id, course.title)
 
   return {
     title: `${course.title} | Google Learning Hub`,
