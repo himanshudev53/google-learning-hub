@@ -21,7 +21,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
       type: 'article',
     },
     alternates: {
-      canonical: `https://bespoke.netlify.app/courses/${params.slug}`
+      canonical: `https://bespoke-pika-28ba05.netlify.app/courses/${params.slug}`
     },
     keywords: ['ga4 course', 'google analytics certification', 'ga4 tutorial free', 'learn analytics online'],
   }
