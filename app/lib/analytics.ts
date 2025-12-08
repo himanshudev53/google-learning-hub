@@ -27,6 +27,7 @@ export const AnalyticsEvents = {
     CLICK_EXTERNAL_LINK: 'click_external_link',
     BEGIN_CHECKOUT: 'begin_checkout',
     PURCHASE: 'purchase',
+    BLOG_VIEW: 'blog_view',
 } as const
 
 // Helper function with proper typing
@@ -39,6 +40,18 @@ export const trackCourseView = (courseId: string, courseTitle: string): void => 
     trackEvent(AnalyticsEvents.COURSE_VIEW, {
         course_id: courseId,
         course_title: courseTitle,
+        page_location: window.location?.pathname || '',
+    })
+}
+export const trackBlogView = (blogId: string, blogTitle: string): void => {
+    if (typeof window === 'undefined') {
+        // Server-side: do nothing
+        return
+    }
+
+    trackEvent(AnalyticsEvents.BLOG_VIEW, {
+        blog_id: blogId,
+        blog_title: blogTitle,
         page_location: window.location?.pathname || '',
     })
 }

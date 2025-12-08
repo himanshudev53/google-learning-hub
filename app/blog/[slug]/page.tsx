@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { blogPosts } from '../page';
 import { generateSEOConfig } from '@/app/lib/seo'
+import { trackBlogView } from '@/app/lib/analytics';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -44,6 +45,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             day: 'numeric',
         });
     };
+
+    trackBlogView(post.slug, post.title);
 
     return (
         <article className="max-w-4xl mx-auto py-12 px-4">
