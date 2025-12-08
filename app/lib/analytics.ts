@@ -1,8 +1,7 @@
 // lib/analytics.ts
 declare global {
     interface Window {
-        gtag: (...args: any[]) => void;
-        // dataLayer: any[];
+        gtag?: (...args: any[]) => void
     }
 }
 
@@ -10,44 +9,43 @@ export const trackEvent = (
     eventName: string,
     eventParams?: Record<string, any>
 ) => {
+    // Only run in browser environment
     if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', eventName, eventParams);
+        window.gtag('event', eventName, eventParams)
     }
-};
+}
 
-// Common event types for your learning platform
+// Common event types
 export const AnalyticsEvents = {
-    // Course interactions
     COURSE_VIEW: 'course_view',
     COURSE_START: 'course_start',
     COURSE_COMPLETE: 'course_complete',
-
-    // User engagement
     SEARCH: 'search',
     FILTER_COURSES: 'filter_courses',
     DOWNLOAD_RESOURCE: 'download_resource',
-
-    // Navigation
     NAVIGATE: 'navigate',
     CLICK_EXTERNAL_LINK: 'click_external_link',
-
-    // E-commerce (if you add payments)
     BEGIN_CHECKOUT: 'begin_checkout',
     PURCHASE: 'purchase',
-};
+} as const
 
-// Helper functions for common actions
-export const trackCourseView = (courseId: string, courseTitle: string) => {
+// Helper function with proper typing
+export const trackCourseView = (courseId: string, courseTitle: string): void => {
+    if (typeof window === 'undefined') {
+        // Server-side: do nothing
+        return
+    }
+
     trackEvent(AnalyticsEvents.COURSE_VIEW, {
         course_id: courseId,
         course_title: courseTitle,
-        page_location: window.location.pathname,
-    });
-};
+        page_location: window.location?.pathname || '',
+    })
+}
 
-export const trackSearch = (searchTerm: string, resultCount: number) => {
+export const trackSearch = (searchTerm: string, resultCount: number): void => {
     trackEvent(AnalyticsEvents.SEARCH, {
         search_term: searchTerm,
         result_count: resultCount,
-    });
-};
+    })
+}
