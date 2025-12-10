@@ -48,7 +48,7 @@ export const trackBlogView = (blogId: string, blogTitle: string): void => {
         // Server-side: do nothing
         return
     }
-
+    console.log("Tracking blog view", { blogId, blogTitle });
     trackEvent(AnalyticsEvents.BLOG_VIEW, {
         blog_id: blogId,
         blog_title: blogTitle,
